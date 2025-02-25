@@ -4,7 +4,7 @@ import joblib
 import numpy as np
 from datetime import timedelta
 import os
-from dotenv import load_dotenv  # ✅ Corrected import
+from dotenv import load_dotenv  #  Corrected import
 
 # Load environment variables from .env file
 load_dotenv()
@@ -17,13 +17,13 @@ model_path = os.getenv("DECISION_TREE_MODEL_PATH", "best_decision_tree_model.job
 # Load the model with error handling
 try:
     model = joblib.load(model_path)
-    print(f"✅ Model loaded successfully from: {model_path}")
+    print(f"Model loaded successfully from: {model_path}")
 except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    print(f"Error loading model: {e}")
     model = None
 
 # Secret key for JWT and token expiration
-# ✅ Load secret key from .env
+# Load secret key from .env
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "fallback_secret")
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=6)  # Token lasts 6 hours
 
